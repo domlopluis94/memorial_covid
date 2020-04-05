@@ -19,7 +19,7 @@
   }
   </style>
 </head>
-<body>
+<body style="background-image: url('https://www.publicdomainpictures.net/pictures/20000/velka/memorial-wall-wallpaper.jpg'); background-position: center; background-repeat: no-repeat; background-size: 100% 100%">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="{% url 'principal' %}" >Memorial Covid-19</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,11 +28,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      </li>
+        {% if usuarioActivo.nombreUser != '' %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'principal' %}" >Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'altaMemorial' %}">Add Memorial</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'publicpage' %}">Public</a>
       </li>
     </ul>
     <form class="form-inline" action="{% url 'searcher' %}" method="POST">
@@ -40,60 +47,38 @@
             <input class="form-control mr-sm-2" name="input_search" type="search" placeholder="Nombre" aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
           </form>
+      {% endif %}
   </div>
 </nav>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 container-lg-4">
-
-        </div>
-        <div class="col-sm-8 container-lg-4">
-        <div class="card-body col-12 col-md-4 mx-auto">
-        <div class="card-header">Alta usuario</div>
-        <form action="{% url 'añadirMemorial' %}" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-            <label for="nombreDefu">Nombre de Memorial</label>
-                <input type="text" name="nombreDefu" class="form-control" id="nombreDefu" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="email" name="city" class="form-control" id="city" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-            <div class="form-group">
-            <label for="DNIAltaUsuario">Memories</label>
-            <input type="text" name="passAltaUsuario" class="form-control" id="DNIAltaUsuario" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="birth">Born date</label>
-            <input type="date" name="birth" class="form-control" id="birth" placeholder="Password">
-          </div>
-
-            <div class="form-group">
-            <label for="defunct">Defunction date</label>
-            <input type="date" name="defunct" class="form-control" id="defunct" placeholder="Password">
-          </div>
-            <div class="form-group">
-            <label for="defunct">Public</label>
-                <select id="public" class="form-control" name="public">
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
-                </select>
-          </div>
-            <div class="form-group">
-            <label for="defunct">URL Photo</label>
-            <input type="url" name="url" class="form-control" id="url" placeholder="url">
-          </div>
-
-          <button type="submit" class="btn btn-primary">Dar de Alta</button>
-        </form>
-      </div>
-        </div>
-        <div class="col-sm-2 container-lg-4">
-
-        </div>
-  </div>
+{% if alarma %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{alarma}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
 </div>
+{% endif %}
+    <!-- Listado de peliculas -->
+<div class="col-12 container vh-100">
+      <div class="row d-flex flex-row flex-wrap align-items-center justify-content-center col-12 col-md-10 mx-auto" style="height: 92vh">
+       <div style="width: 0.01%"></div>
+       <!-- Aqui debe comenzar el bucle de Django que vaya recorriendo las peliculas en una lista de peliculas -->
+          {% for memorials in listaPersonas %}
+        <div class="col-12 col-md-2 rounded ficha mx-auto bg-dark" style="padding: 0; overflow: hidden; box-shadow: 0px 0px 5px 1px">
+                <div>
+                   <input type="image"  src="{{memorials.1.url}}" class="img-fluid bg-dark">
+                </div>
+                <div class="text-center bg-dark font-weight-bold" style="padding-top: 5px; padding-bottom: 5px">
+                    <span class="text-white" style="text-shadow: 1px 1px 1px black">{{memorials.1.nombreDefu}}</span> <!-- Donde pone interestelar debe ir la etiqueta de Django que cargue el nombre de la pelicula -->
+                </div>
+        </div>
+          {% endfor %}
+        <!-- Aqui debe finalizar el bucle de Django -->
+        <div style="width: 0.01%"></div>
+      </div>
+</div>
+
 </body>
+
+
 </html>

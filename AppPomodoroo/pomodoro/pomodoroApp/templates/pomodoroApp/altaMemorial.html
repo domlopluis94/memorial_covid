@@ -49,19 +49,55 @@
   </div>
 </nav>
 <div class="d-flex align-items-center vh-100">
+
     <!--Tarjeta de formulario de login-->
-    <div class="card align-self-center mx-auto text-white col-9 col-lg-3" style="background-color: #78909c; border-radius: 15px">
-          <img src="{{photo1.url}}" class="card-img-top" alt="{memorials.nombreDefu} foto">
-          <div class="card-body">
-            <h5 class="card-title">{{memorials.nombreDefu}}</h5>
-              <h6>{{memorials.city}}</h6>
-              <h8>{{memorials.birth}} - {{memorials.defunct}}</h8>
-            <p class="card-text">{{memorials.description}}</p>
-          </div>
+    <div class="card align-self-center mx-auto text-black col-9 col-lg-3" style=" border-radius: 15px">
+                    {% if alarma %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{alarma}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
         </div>
+        {% endif %}
+    <div class="card-header">Alta de Difunto DEP</div>
+            <form action="{% url 'añadirMemorial' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="nombreDefu">Nombre de Memorial</label>
+                    <input type="text" name="nombreDefu" class="form-control" id="nombreDefu" placeholder="Nombre Completo" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" id="city"  placeholder="Ciudad de residencia">
+              </div>
+                <div class="form-group">
+                <label for="description">Memories</label>
+                <input type="text" name="description" class="form-control" id="description" placeholder="Memorias del difunto">
+              </div>
+              <div class="form-group">
+                <label for="birth">Born date</label>
+                <input type="date" name="birth" class="form-control" id="birth" placeholder="fecha nacimineto">
+              </div>
+
+                <div class="form-group">
+                <label for="defunct">Defunction date</label>
+                <input type="date" name="defunct" class="form-control" id="defunct" placeholder="fecha Defuncion">
+              </div>
+                <div class="form-group">
+                <label for="defunct">Public</label>
+                    <select id="public" class="form-control" name="public">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+              </div>
+                <div class="form-group">
+                <label for="defunct">URL Photo</label>
+                <input type="url" name="url" class="form-control" id="url" placeholder="url">
+              </div>
+              <button type="submit" class="btn btn-primary align-self-center">Dar de Alta</button>
+            </form>
     </div>
 </div>
-
 </body>
-
 </html>

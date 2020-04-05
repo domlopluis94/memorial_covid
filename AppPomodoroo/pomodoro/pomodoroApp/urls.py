@@ -9,6 +9,7 @@ urlpatterns = [
     url('altaMemorial', views.altaMemorial, name='altaMemorial'),
     url('principal', views.principal, name='principal'),
     url('searcher', views.search, name='searcher'),
+    url('publicpage', views.public, name='publicpage'),
     url('login', views.login, name='login'),
     url('logout', views.logout, name='logout')
 ]

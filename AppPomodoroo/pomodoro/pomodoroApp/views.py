@@ -15,6 +15,7 @@ def index(request):
     return render(request,"pomodoroApp/index.html", context)
 
 def logout(request):
+    global usuarioActivo
     usuarioActivo = User()
     return index(request)
 
@@ -53,22 +54,72 @@ def principal(request):
     template = loader.get_template("pomodoroApp/main.html")
     try:
         memorials = Memorial.objects.get(dniAlta=usuarioActivo.dni)
+        photo1 = photo.objects.get(nombreDefu=memorials.nombreDefu)
         otromem = Memorial.objects.all()
         context = {
             "memorials": memorials,
+            "photo1": photo1,
             "otrosM": otromem[0],
-            "alarma":None
+            "alarma":None,
+            "usuarioActivo": usuarioActivo
         }
     except:
         try:
             otromem = Memorial.objects.all()
             context = {
                 "otrosM": otromem[0],
-                "alarma":None
+                "alarma":None,
+                "memorials": otromem[0],
+                "usuarioActivo": usuarioActivo
             }
         except:
             context = {
-                "alarma": "No memorials in BD"
+                "otrosM": None,
+                "memorials": None,
+                "alarma": "No memorials in BD",
+                "usuarioActivo": usuarioActivo
+            }
+    return HttpResponse(template.render(context, request))
+
+def public(request):
+    global usuarioActivo
+    template = loader.get_template("pomodoroApp/public.html")
+    memorials = Memorial.objects.filter(public=0)
+    listafotos = []
+    listmemorials = []
+    for e in memorials:
+            listmemorials.append(e)
+
+    length = len(listmemorials)
+
+    for i in range(length):
+        photo1 = photo.objects.get(nombreDefu=listmemorials[i].nombreDefu)
+        listafotos.append(photo1)
+
+    union = zip(listmemorials,listafotos)
+    try:
+        context = {
+            "listaPersonas": union,
+            "listafotos": listafotos,
+            "alarma": None,
+            "sice":length,
+            "usuarioActivo": usuarioActivo
+        }
+
+    except:
+        try:
+            otromem = Memorial.objects.all()
+            context = {
+                "listaPersonas": otromem[0],
+                "alarma":"no hay publicos",
+                "usuarioActivo": usuarioActivo
+            }
+        except:
+            context = {
+                "otrosM": None,
+                "memorials": None,
+                "alarma": "No memorials in BD",
+                "usuarioActivo": usuarioActivo
             }
     return HttpResponse(template.render(context, request))
 
@@ -125,21 +176,21 @@ def add_user(request):
 def add_memoria(request):
     global usuarioActivo
     if request.method == 'PUT' or request.method == 'POST':
-        nombreDefu = request.POST['nombreAltaUsuario']
-        birth = request.POST['nombreAltaUsuario']
-        defunct = request.POST['nombreAltaUsuario']
-        description = request.POST['nombreAltaUsuario']
-        public = request.POST['nombreAltaUsuario']
-        city = request.POST['nombreAltaUsuario']
+        nombreDefu = request.POST['nombreDefu']
+        birth = request.POST['birth']
+        defunct = request.POST['defunct']
+        description = request.POST['description']
+        public = request.POST['public']
+        city = request.POST['city']
         dniAlta = usuarioActivo.dni
         url = request.POST['url']
         try:
-            if nombreDefu != '' and birth != '' and defunct != '' and description != '' and public != '' and city != '' and dniAlta != '' :
-                if public != 'public':
+            if nombreDefu != '' and birth != '' and defunct != '' and description != '' and city != '':
+                if public != 'Public':
                     npublic = 1
                 else:
                     npublic = 0
-                mem = Memorial(nombreDefu=nombreDefu, defunct=defunct, description=description,public=npublic,city = city,dniAlta =dniAlta,)
+                mem = Memorial(nombreDefu=nombreDefu, birth=birth,defunct=defunct, description=description, public=npublic,city=city, dniAlta=dniAlta)
                 mem.save()
                 if url != '' :
                     foto = photo(dniAlta=dniAlta, nombreDefu=nombreDefu, url=url)
@@ -154,7 +205,7 @@ def add_memoria(request):
                 return HttpResponse(template.render(context, request))
             else:
                 template = loader.get_template("pomodoroApp/altaMemorial.html")
-                alar = "Datos Incorrectos, Introduza los campos correctamente"
+                alar = "Datos Incorrectos, Introduza todos los campos correctamente"
                 context = {
                     "alarma": alar,
                     "usuarioActivo": usuarioActivo
@@ -162,7 +213,7 @@ def add_memoria(request):
                 return HttpResponse(template.render(context, request))
         except:
             template = loader.get_template("pomodoroApp/altaMemorial.html")
-            alar = "Datos Incorrectos, Introduza los campos correctamente"
+            alar = "Datos Incorrectos, Introduza los campos correctamente" + dniAlta + nombreDefu
             context = {
                 "alarma": alar,
                 "usuarioActivo": usuarioActivo
@@ -184,8 +235,11 @@ def search(request):
     try:
         if request.POST['input_search'] != '':
             memorialselect = Memorial.objects.filter(nombreDefu=request.POST['input_search'])
+            photo1 = photo.objects.get(nombreDefu=memorialselect.nombreDefu)
             context = {
                 "memorials": memorialselect,
+                "usuarioActivo": usuarioActivo,
+                "photo1":photo1
             }
             return HttpResponse(template.render(context, request))
         else:
@@ -193,16 +247,18 @@ def search(request):
                 otromem = Memorial.objects.all()
                 context = {
                     "otrosM": otromem[0],
-                    "alarma":None
+                    "alarma":None,
+                    "usuarioActivo": usuarioActivo
                 }
                 return HttpResponse(template.render(context, request))
             except:
                 context = {
-                    "alarma": "No memorials in BD"
+                    "alarma": "No memorials in BD",
+                    "usuarioActivo": usuarioActivo
                 }
                 return HttpResponse(template.render(context, request))
     except:
-       principal(request)
+       return principal(request)
 
     return HttpResponse(template.render(context, request))
 
