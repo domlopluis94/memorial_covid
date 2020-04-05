@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Memorial Covid-19</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <style>
+  .main {
+    background-color: #fffde7;
+    text-align: center;
+    border-style: groove;
+  }
+  body{
+    background-color: #fff8e1;
+  }
+  </style>
+</head>
+
+<body style="background-image: url('https://www.publicdomainpictures.net/pictures/20000/velka/memorial-wall-wallpaper.jpg'); background-position: center; background-repeat: no-repeat; background-size: 100% 100%">
+
+
+    <div class="d-flex align-items-center vh-100">
+
+    <!--Tarjeta de formulario de login-->
+    <div class="card align-self-center mx-auto text-white col-12 col-md-3" style="background-color: rgba(0,0,0,0.8); border-radius: 15px">
+      <div class="col-9 mx-auto m-4">
+          <img class="card-img-top" src='https://image.flaticon.com/icons/svg/1855/1855940.svg'>
+      </div>
+        {% if alarma %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{alarma}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        {% endif %}
+       <div class="card-body" >
+        <form action="{% url 'login' %}" method="POST" >
+            {% csrf_token %}
+            <label for="emailUsuario" >Usuario</label>
+            <input type="email" name="emailUsuario" class="form-control text-white border-bottom" id="emailUsuario" aria-describedby="emailHelp" placeholder="Usuario" style="background-color: rgba(0,0,0,0); border: none">
+            <br>
+            <label for="passUsuario" >Contraseña</label>
+            <input type="password" name="passUsuario" class="form-control text-white border-bottom" id="passUsuario" placeholder="Contraseña" style="background-color: rgba(0,0,0,0); border: none">
+            <br>
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
+           <button id="myBtn" class="btn btn-primary">Create User</button>
+      </div>
+    </div>
+    </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content align-self-center mx-auto text-white col-12 col-md-5" style="background-color: #37474f;font-family: courier, monospace;">
+    <span class="close" style="color: white;">&times;</span>
+      <div class="card-body col-12 col-md-4 mx-auto">
+        <div class="card-header">Alta usuario</div>
+        <form action="{% url 'añadirusuario' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+            <label for="emailAltaUsuario">Correo Electrónico</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+              </div>
+                <input type="email" name="emailAltaUsuario" class="form-control" id="emailAltaUsuario" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+          </div>
+          <div class="form-group">
+            <label for="nombreAltaUsuario">Nombre de usuario </label>
+            <input type="text" name="nombreAltaUsuario" class="form-control" id="nombreAltaUsuario" placeholder="Enter name">
+          </div>
+            <div class="form-group">
+            <label for="passAltaUsuario">DNI</label>
+            <input type="text" name="DNIAltaUsuario" class="form-control" id="DNIAltaUsuario" placeholder="DNI">
+          </div>
+          <div class="form-group">
+            <label for="passAltaUsuario">Contraseña</label>
+            <input type="password" name="passAltaUsuario" class="form-control" id="passAltaUsuario" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Dar de Alta</button>
+        </form>
+      </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+
+</body>
+</html>
