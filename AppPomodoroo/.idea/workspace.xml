@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e57555f-e66a-4152-ab9f-a23ab371cc05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/public.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemoria.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoroApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pomodoro/pomodoroApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pomodoro/pomodoroApp/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="3e57555f-e66a-4152-ab9f-a23ab371cc05" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="599">
               <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="44" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
+            <state relative-caret-position="-601">
               <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -163,11 +154,11 @@
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemoria.html" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/admin.py" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/urls.py" />
-        <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/main.html" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/views.py" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/public.html" />
         <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html" />
+        <option value="$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html" />
       </list>
     </option>
   </component>
@@ -305,7 +296,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -399,6 +389,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-601">
+          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1945#1952#1" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#2;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#2;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#3127#3134#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -406,14 +425,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html">
+    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="44" />
+        <state relative-caret-position="919">
+          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2931#2938#1" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -435,41 +452,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/views.py">
+    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/altaMemorial.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="53" column="62" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+        <state relative-caret-position="599">
+          <caret line="50" column="44" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pomodoro/pomodoroApp/templates/pomodoroApp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="91" column="33" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1945#1952#1" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#2;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#2;n#div#0;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3127#3134#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2931#2938#1" expanded="true" />
           </folding>
         </state>
       </provider>
